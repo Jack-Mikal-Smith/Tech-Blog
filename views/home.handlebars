@@ -1,0 +1,14 @@
+<h2>All Posts</h2>
+{{#each posts as |post| }}
+<div class="row mb-4 post">
+    <h3>
+        <a href="/post/{{post.id}}">{{post.name}}</a>
+    </h3>
+
+    <p>
+        {{post.content}}
+    </p>
+    <p>Created by {{post.user.name}} on {{post.date_created}}</p>
+
+</div>
+{{/each}}
