@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
         const posts =  postData.map((post) => post.get({ plain: true }));
 
-        res.render('homepage', {
+        res.render('home', {
             posts,
             logged_in: req.session.logged_in
         });
@@ -29,20 +29,38 @@ router.get('/post/:id', async (req, res) => {
         const postData = await Posts.findByPk(req.params.id, {
             include: [
                 {
-                    model: Users,
-                    attributes: ['name'],
+                    model: Users, Comment,
+                    attributes: ['name', 'content'],
                 },
             ],
         });
 
         const post = postData.get({ plain: true });
 
-        res.render('post', {
+        res.render('post', 'comment', {
             ...post,
             logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
+    }
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await Users.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Posts }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+        });
+    } catch (error) {
+        res.status(500).json(error);
     }
 });
 

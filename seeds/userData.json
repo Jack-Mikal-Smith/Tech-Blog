@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Jack Smith",
+        "username": "seedUser1",
+        "password": "password"
+    },
+    {
+        "name": "Joe Smith",
+        "username": "seedUser2",
+        "password": "password"
+    },
+    {
+        "name": "Jane Smith",
+        "username": "seedUser3",
+        "password": "password"
+    },
+    {
+        "name": "Jackie Smith",
+        "username": "seedUser4",
+        "password": "password"
+    }
+]
