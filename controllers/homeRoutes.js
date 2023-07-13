@@ -57,7 +57,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
         res.render('dashboard', {
             ...user,
-            logged_in: true
+            logged_in: req.session.logged_in
         });
     } catch (error) {
         res.status(500).json(error);
@@ -75,7 +75,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/signup');
+        res.redirect('/dashboard');
         return;
     }
 
