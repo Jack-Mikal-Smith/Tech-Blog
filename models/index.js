@@ -6,6 +6,10 @@ Posts.belongsTo(Users, {
     foriegnKey: 'user_id'
 });
 
+Users.hasMany(Posts, {
+    foreignKey: 'user_id'
+});
+
 Posts.hasMany(Comment, {
     foriegnKey: 'post_id'
 });

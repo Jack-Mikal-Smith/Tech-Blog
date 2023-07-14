@@ -12,7 +12,7 @@ const newPostHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.reload;
         } else {
             alert('Failed to create post.');
         }
@@ -29,7 +29,7 @@ const deletePostHandler = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload;
     } else {
         alert('Failed to delete post');
     }

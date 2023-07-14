@@ -9,16 +9,16 @@
     <h3>Create a New Post:</h3>
 
     <form class="form new-post-form">
-      <div class="form-group">
+      <div class="mb-3">
         <label for="post-name">Post Name:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" />
       </div>
-      <div class="form-group">
+      <div class="mb-3">
         <label for="post-content">Content</label>
-        <textarea class="form-input" id="post-content" name="post-content"></textarea>
+        <textarea class="form-control" id="post-content" name="post-content"></textarea>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Post</button>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary" id="postbtn">Post</button>
       </div>
     </form>
   </div>
@@ -44,4 +44,3 @@
 
 {{!-- update src --}}
 <script src="/js/profile.js"></script>
-<script src="/js/login.js"></script>
