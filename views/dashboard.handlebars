@@ -23,11 +23,11 @@
     </form>
   </div>
 
-  {{#if posts.length}}
+  {{#if Posts.length}}
   <div class="col-md-6 post-list">
     <h3>Current Posts:</h3>
 
-    {{#each posts as |post|}}
+    {{#each Posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
