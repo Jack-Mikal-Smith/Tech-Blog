@@ -13,6 +13,9 @@ const newPostHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/dashboard');
+
+            console.log(title, content, id);
+
         } else {
             alert('Failed to create post.');
         }
@@ -24,21 +27,44 @@ const deletePostHandler = async (event) => {
 
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/post/${id}`, {
+    const response = await fetch(`api/posts/${id}`, {
         method: 'DELETE',
+        headers: { 'Content-Type': 'application/json'},
     });
 
     if (response.ok) {
-        document.location.reload;
+        document.location.replace('/dashboard');
     } else {
         alert('Failed to delete post');
     }
 };
+
+const viewPostHandler = async (event) => {
+    if (event.target.hasAttribute('data-id'));
+
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`api/posts/${id}`, {
+        method: 'GET',
+        body: { title, content },
+        headers: { 'Content-Type': 'application/json'},
+    });
+
+    if (response.ok) {
+        document.location.replace('/post');
+    } else {
+        alert('Failed to find post');
+    }
+}
 
 document
     .querySelector('.new-post-form')
     .addEventListener('submit', newPostHandler);
 
 document
-    .querySelector('.post-list')
+    .querySelector('#delete-btn')
     .addEventListener('click', deletePostHandler);
+    
+document
+    .querySelector('h3')
+    .addEventListener('click', viewPostHandler);

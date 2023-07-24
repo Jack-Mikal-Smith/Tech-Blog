@@ -1,14 +1,20 @@
-const post = async () => {
-    const res = await fetch('/api/post', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+const viewPostHandler = async (event) => {
+    if (event.target.hasAttribute('data-id'));
+
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`api/posts/${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},
     });
 
-    if (res.ok) {
-        document.location.reload;
+    if (response.ok) {
+        location.replace('/post');
     } else {
-        alert(res.statusText);
+        alert('Failed to find post');
     }
 };
 
-document.querySelector('#postbtn').addEventListener('submit', post);
+document
+    .querySelector('h3')
+    .addEventListener('click', viewPostHandler);

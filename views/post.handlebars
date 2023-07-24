@@ -1,5 +1,5 @@
 <div class="text-center">
-    <h2>{{name}}</h2>
+    <h2>{{title}}</h2>
     <p>{{content}}</p>
     <p>Created by {{user.name}} on {{date_created}}</p>
 </div>
@@ -19,10 +19,10 @@
     </form>
   </div>
 <div class="text-center">
-    <a href="/home">Return Home</a>
+    <a href="/">Return Home</a>
 </div>
 
-{{#each comment as |comment| }}
+{{#each Comment as |comment| }}
 <div class="row mb-4 comment">
     <p>{{comment.content}}</p>
     <p>Commented by {{comment.user.name}} on {{comment.date_created}}</p>
