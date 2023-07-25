@@ -9,7 +9,7 @@ const viewPostHandler = async (event) => {
     });
 
     if (response.ok) {
-        location.replace('/post');
+        document.location.replace('/post');
     } else {
         alert('Failed to find post');
     }

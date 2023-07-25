@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/post', withAuth, async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         const postData = await Posts.findByPk(req.params.id, {
             include: [
@@ -35,7 +35,7 @@ router.get('/post', withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
         console.log(post);
-        res.render('post', 'comment', {
+        res.render('post', {
             ...post,
         });
     } catch (err) {
