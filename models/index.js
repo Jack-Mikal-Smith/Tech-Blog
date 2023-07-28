@@ -18,4 +18,5 @@ Comment.belongsTo(Users, {
     foriegnKey: 'user_id'
 });
 
+
 module.exports = { Users, Comment, Posts };

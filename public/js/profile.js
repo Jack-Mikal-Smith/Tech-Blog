@@ -65,6 +65,6 @@ document
     .querySelector('#delete-btn')
     .addEventListener('click', deletePostHandler);
     
-document
-    .querySelector('h3')
-    .addEventListener('click', viewPostHandler);
+// document
+//     .querySelector('h3')
+//     .addEventListener('click', viewPostHandler);

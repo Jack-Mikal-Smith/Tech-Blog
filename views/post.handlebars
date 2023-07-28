@@ -1,7 +1,7 @@
-<div class="text-center">
+<div class="text-center" data-id="{{post_id}}">
     <h2>{{title}}</h2>
     <p>{{content}}</p>
-    <p>Created by {{user.name}} on {{date_created}}</p>
+    <p>Created by {{User.name}} on {{date_created}}</p>
 </div>
 
 <div class="row mt-4">
@@ -18,9 +18,6 @@
       </div>
     </form>
   </div>
-<div class="text-center">
-    <a href="/">Return Home</a>
-</div>
 
 {{#each Comment as |comment| }}
 <div class="row mb-4 comment">
@@ -29,4 +26,4 @@
 </div>
 {{/each}}
 
-<script src="/public/js/comment.js"></script>
+<script src="/js/comment.js"></script>
