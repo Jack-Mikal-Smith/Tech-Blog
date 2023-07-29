@@ -1,7 +1,7 @@
-<div class="text-center" data-id="{{post_id}}">
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
-    <p>Created by {{User.name}} on {{date_created}}</p>
+<div class="card border-info border-2 rounded shadow-sm m-3 p-2" data-id="{{post_id}}">
+    <h2 class="card-title">{{title}}</h2>
+    <p class="card-text">{{content}}</p>
+    <p class="card-subtitle">Created by {{User.name}} on {{date_created}}</p>
 </div>
 
 <div class="row mt-4">
@@ -14,15 +14,15 @@
         <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="submit" class="btn btn-primary" id="commentbtn">Post</button>
       </div>
     </form>
   </div>
 
 {{#each Comment as |comment| }}
-<div class="row mb-4 comment">
-    <p>{{comment.content}}</p>
-    <p>Commented by {{comment.user.name}} on {{comment.date_created}}</p>
+<div class="card border-info border-2 rounded shadow-sm m-3 p-2 comment">
+    <p class="card-text">{{comment.content}}</p>
+    <p class="card-subtitle">Commented by {{comment.user.name}} on {{comment.date_created}}</p>
 </div>
 {{/each}}
 
