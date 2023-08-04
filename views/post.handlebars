@@ -1,28 +1,31 @@
-<div class="card border-info border-2 rounded shadow-sm m-3 p-2" data-id="{{post_id}}">
-    <h2 class="card-title">{{title}}</h2>
+<div class="card border-info border-2 rounded shadow-sm m-3 p-2" id="post">
+    <h2 class="card-title" data-id="{{post_id}}">{{title}}</h2>
     <p class="card-text">{{content}}</p>
     <p class="card-subtitle">Created by {{User.name}} on {{date_created}}</p>
+    <p class="visually-hidden" id="post-id">{{id}}</p>
+</div>
+<div class="card border-info border-2 rounded shadow-sm m-3 p-2">
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h3>Leave a Comment:</h3>
+        <form class="form new-comment-form" data-id="{{post_id}}">
+          <div class="mb-3">
+            <div class="form-group">
+              <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-outline-info btn-sm m2" id="commentbtn">Post</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Leave a Comment:</h3>
-
-    <form class="form new-comment-form">
-      <div class="form-group">
-        <label for="comment-content">Comment</label>
-        <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="commentbtn">Post</button>
-      </div>
-    </form>
-  </div>
-
-{{#each Comment as |comment| }}
+{{#each Comments as |comment| }}
 <div class="card border-info border-2 rounded shadow-sm m-3 p-2 comment">
     <p class="card-text">{{comment.content}}</p>
-    <p class="card-subtitle">Commented by {{comment.user.name}} on {{comment.date_created}}</p>
+    <p class="card-subtitle">Commented by {{comment.User.name}} on {{comment.date_created}}</p>
 </div>
 {{/each}}
 

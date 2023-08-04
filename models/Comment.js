@@ -12,7 +12,7 @@ Comment.init(
             autoIncrement: true,
         },
         date_created: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
@@ -27,6 +27,13 @@ Comment.init(
                 key: 'id',
             }
 
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'users',
+                key: 'id'
+            }
         }
     },
     {

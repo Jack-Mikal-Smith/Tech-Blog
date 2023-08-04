@@ -1,7 +1,6 @@
 <h2>All Posts</h2>
 {{#each posts as |post| }}
-<a href="/post/{{post.id}}">
-    <div class="card border-info border-2 rounded shadow-sm m-3 p-2">
+<a href="/post/{{post.id}}" class="card border-info border-2 rounded shadow-sm m-3 p-2 link-underline-light">
         <div class="row mb-4 post">
             <h3 class="card-title" data-id="{{post.id}}">
                 {{post.title}}
@@ -13,7 +12,6 @@
             <p class="card-subtitle">Created by {{post.User.name}} on {{post.date_created}}</p>
 
         </div>
-    </div>
 </a>
 {{/each}}
 
